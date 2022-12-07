@@ -10,7 +10,6 @@ http://www.mulesoft.org/schema/mule/sockets http://www.mulesoft.org/schema/mule/
 http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd">
 	<flow name="hellomuleFlow" doc:id="b05786af-e49e-441a-b9b0-f6a6748706fa" >
 		<http:listener doc:name="Listener" doc:id="43155554-8e9c-4b35-bbfe-6b71abea3ee6" config-ref="HTTP_Listener_config" path="/hellomule"/>
-		<logger level="INFO" doc:name="Logger1" doc:id="ab275268-f842-4555-a09b-87ad9dc897c9" message='#[output application/java&#10;---&#10;"Username: " ++ Mule::p("secure::example.username")&#10;++ " - " ++&#10;"Password: " ++ Mule::p("secure::example.password")]' />
 		<set-payload value="Hello Mule" doc:name="Set Payload" doc:id="a29f56f4-4daa-4080-931d-4902675ae3db" />
 		<logger level="INFO" doc:name="Logger" doc:id="d034fde2-9138-4894-8fa0-c9e6eeece2da" message='#[output application/java&#10;---&#10;"Username: " ++ Mule::p("secure::example.username")&#10;++ " - " ++&#10;"Password: " ++ Mule::p("secure::example.password")]'/>
 	</flow>

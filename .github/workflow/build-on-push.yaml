@@ -4,7 +4,7 @@ name: Build Mulesoft
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   workflow_dispatch:
     
 jobs:

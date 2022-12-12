@@ -37,6 +37,9 @@ jobs:
            "password": "${{ secrets.mule_nexus_password }}"
           }]
     
+    - name: cat setting.yaml
+      run: cat /home/runner/.m2/settings.xml
+    
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     

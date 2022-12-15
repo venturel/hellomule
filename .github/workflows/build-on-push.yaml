@@ -49,18 +49,18 @@ jobs:
         commitHash=$(git rev-parse --short "$GITHUB_SHA")
         artifactName2=$(ls target/*.jar | head -1 | sed "s/.jar/-$commitHash.jar/g")
         mv $artifactName1 $artifactName2
-    
+      
+    - name: Upload artifact 
+      uses: actions/upload-artifact@master
+      with:
+          name: artifacts
+          path: target/*.jar
+
     - name: Veracode Upload and Scan
       uses: veracode/veracode-uploadandscan-action@0.2.4
       with: 
         appname: 'HelloMule'
         createprofile: true
-        filepath: artifacts
+        filepath: target/*.jar
         vid: ${{ secrets.veracode_api_id }}
         vkey: ${{ secrets.veracode_api_key}}
-      
-#    - name: Upload artifact 
-#      uses: actions/upload-artifact@master
-#      with:
-#          name: artifacts
-#          path: target/*.jar

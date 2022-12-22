@@ -66,6 +66,7 @@ jobs:
         vkey: ${{ secrets.veracode_api_key}}
         
   pipeline-scanner:
+    needs: build
     runs-on: ubuntu-latest
     
     steps:

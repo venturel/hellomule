@@ -74,13 +74,7 @@ jobs:
       run: unzip pipeline-scan-LATEST.zip
       
     - name: Run Pipeline Scanner
-      run: java -Dpipeline.debug=true -jar pipeline-scan.jar \
-        --veracode_api_id "${{secrets.veracode_api_id}}" \
-        --veracode_api_key "${{secrets.veracode_api_key}}" \
-        --file "artifacts.zip" --fail_on_severity="Very High, High"
-      
-      
-      
+      run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.veracode_api_id}}" --veracode_api_key "${{secrets.veracode_api_key}}" --file "artifacts.zip" --fail_on_severity="Very High, High"
       
       
       
